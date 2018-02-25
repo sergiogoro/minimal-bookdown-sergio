@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>A Minimal Book Example</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <meta name="generator" content="bookdown 0.7.1 and GitBook 2.6.7">
+
+  <meta property="og:title" content="A Minimal Book Example" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="<a href="https://github.com/sergiogoro/minimal-bookdown-sergio" class="uri">https://github.com/sergiogoro/minimal-bookdown-sergio</a>" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="A Minimal Book Example" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Sergio">
+
+
+<meta name="date" content="2018-02-25">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="ref-CleanPreviousCrap.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="2" data-path="how-to-minimal-bookdown.html"><a href="how-to-minimal-bookdown.html"><i class="fa fa-check"></i><b>2</b> How to minimal Bookdown</a></li>
+<li class="chapter" data-level="3" data-path="ref-CleanPreviousCrap.html"><a href="ref-CleanPreviousCrap.html"><i class="fa fa-check"></i><b>3</b> Clean previous crap</a></li>
+<li class="chapter" data-level="4" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>4</b> Introduction</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Book Example</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="how-to-minimal-bookdown" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> How to minimal Bookdown</h1>
+<ul>
+<li>Download the <a href="https://github.com/sergiogoro/minimal-bookdown-sergio">minimal-bookdown-sergio</a> GitHub repository as a <a href="https://github.com/sergiogoro/minimal-bookdown-sergio/archive/master.zip">Zip</a> file, then unzip it locally.<br />
+</li>
+<li>Create a new RStudio project
+<ul>
+<li>Create a new project -&gt; in existing directory -&gt; select the local repo -&gt; Create.<br />
+</li>
+<li>Check: Build -&gt; build book.</li>
+</ul></li>
+</ul>
+<p>If it gives this error:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="op">!</span><span class="st"> </span>Package xparse Error<span class="op">:</span><span class="st"> </span>Support package l3kernel too old.</code></pre></div>
+<p>Then, update those packages from Miktex, <a href="https://tex.stackexchange.com/questions/132243/media9-l3kernel-too-old-support-outdated">in a special way</a></p>
+<ol start="6" style="list-style-type: decimal">
+<li>Modificar basicos archivos ( <a href="http://seankross.com/2016/11/17/How-to-Start-a-Bookdown-Book.html" class="uri">http://seankross.com/2016/11/17/How-to-Start-a-Bookdown-Book.html</a> ) 6.1) _output.yml 6.1.1)The only line you should change here is the title of the book, which in this case is A Minimal Bookdown Book</li>
+</ol>
+<p>6.2) _bookdown.yml 6.2.1) The book_filename field determines what the name of the PDF and EPUB versions of your book will be called. In the case of this book the PDF version would be bookdown-start.pdf. The chapter_name field is a string that is appended to the front of each chapter heading, followed by the chapter number. Chapter headings are designated by H1 tags in R Markdown which are usually created with a single pound sign (#). So for example in the file 01-Introduction.Rmd the first H1 tag is # Introduction which becomes �Chapter 1 Introduction� when the book is rendered. The repo field just designates a GitHub repository associated with this book but this is not a required field. The output_dir field determines the directory where the HTML files for your book will be rendered. If you don�t set this field your book will be rendered in a directory called _book/, however if you�re going to be sharing your book with GitHub Pages I highly recommend specifying the docs directory for output_dir. GitHub Pages has a new feature which allows you to use a docs/ folder in the master branch of your repo to publish a static website. This allows you to track the source files for your book and the published HTML files in the same branch, eliminating the need for that pesky gh-pages branch. The rmd_files field is optional. If it is not specified then all Rmd files at the root of your book directory are rendered as chapters in your book. Alternatively you can list the files you want to be rendered like I have in _bookdown.yml. The new_session field is also optional. If you specify new_session: yes then each Rmd file is rendered in its own R session, otherwise all Rmd files in your book are rednered in the same R session.</p>
+<p>6.3) index.Rmd 6.3.1) This file serves as the cover and first few pages of your book, so authors usually put the Preface and/or the Introduction in this file. At the top of this file is a slice of yaml frontmatter that looks like this: — title: “A Minimal Bookdown Book” author: “Sean Kross” date: “2016-12-02” site: bookdown::bookdown_site documentclass: book bibliography: [book.bib] biblio-style: apalike link-citations: yes github-repo: seankross/bookdown-start url: ‘http://seankross.com/bookdown-start/’ description: “Everything you need (and nothing more) to start a bookdown book.” — You should change the title, author, date, github-repo, url, and description fields to customize your book. I omitted a field called cover-image where you can specify the path to a image file for the cover of your book (I know .png works for sure).</p>
+<ol start="7" style="list-style-type: decimal">
+<li><p>Escribir, editando los archivos desde Rstudio (u otro editor) Once you have those three configuration flies set up writing a bookdown book couldn�t be easier if you�re familiar with R Markdown. Just write Rmd files in the root directory of your book (where index.Rmd is) and run bookdown::render_book(“index.Rmd”) periodically to compile your book. You can preview the book by opening up the index.html file in the directory where your book is rendered (docs/index.html in the case of bookdown-start). It�s also good practice to name your Rmd files so that they�re ordered, which you can see I�ve done with the prefixes of 01-, 02-, etc. You can then publish the book on GitHub Pages or you can upload the book to bookdown.org with the publish_book() function.</p></li>
+<li><p>Compilar libro desde RStudio 8.1) bookdown::render_book(“index.Rmd”) 8.2) Abrir “repolocal”/docs/index.html</p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ref-CleanPreviousCrap.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"text": "Edit"
+},
+"download": ["minimal-bookdown-sergio.pdf", "minimal-bookdown-sergio.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

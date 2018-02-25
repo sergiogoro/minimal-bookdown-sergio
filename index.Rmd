@@ -22,26 +22,13 @@ description: "This is a minimal example of using the bookdown package to write a
     - Configure RStudio:  
     - ...  
 
-- If there was a dirty installation of packages, [remove all user installed packages in R](https://www.r-bloggers.com/how-to-remove-all-user-installed-packages-in-r/) (caution!):  
-
-````
-# create a list of all installed packages
- ip <- as.data.frame(installed.packages())
- head(ip)
-# if you use MRO, make sure that no packages in this library will be removed
- ip <- subset(ip, !grepl("MRO", ip$LibPath))
-# we don't want to remove base or recommended packages either\
- ip <- ip[!(ip[,"Priority"] %in% c("base", "recommended")),]
-# determine the library where the packages are installed
- path.lib <- unique(ip$LibPath)
-# create a vector with all the names of the packages you want to remove
- pkgs.to.remove <- ip[,1]
- head(pkgs.to.remove)
-# remove the packages
- sapply(pkgs.to.remove, remove.packages, lib = path.lib)
-````
-
 - Install R packages:  
+    - Devtools  
+
+```{r eval=FALSE}
+install.packages("devtools")  
+```
+
     - Bookdown (development version on GitHub)  
 
 ```{r eval=FALSE}
@@ -53,32 +40,42 @@ devtools::install_github("rstudio/bookdown")
 ````{r eval=FALSE}
 devtools::install_github(c('yihui/tinytex', 'rstudio/rmarkdown'))
 tinytex::install_tinytex()
+# Restart your R session and check if tinytex:::is_tinytex() is TRUE.
+````
+
+    - Knitr (**NOT SURE if necessary in** ***CLEAN*** **installation**):  
+
+```{r eval=FALSE}
+install.packages('knitr', dependencies = TRUE)
 ````
 
 
-```{r include=FALSE}  
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```
 
-    <!---
-    [//]: # Knitr:  
-        - install.packages('knitr', dependencies = TRUE)  
-    --->
+\*If many errors appear, check it's not because you had a previous crappy installation, [here](#ref_CleanPreviousCrap).  
+
+
+
 
 # How to minimal Bookdown
 - Download the [minimal-bookdown-sergio](https://github.com/sergiogoro/minimal-bookdown-sergio) GitHub repository as a [Zip](https://github.com/sergiogoro/minimal-bookdown-sergio/archive/master.zip) file, then unzip it locally.  
 - Create a new RStudio project  
-    - Create a new project -> in existing directory -> select the local repo.  
+    - Create a new project -> in existing directory -> select the local repo -> Create.  
     - Check: Build -> build book.  
 
+If it gives this error:  
+
+````{r eval=FALSE}
+! Package xparse Error: Support package l3kernel too old.
+````
+
+Then, update those packages from Miktex, [in a special way](https://tex.stackexchange.com/questions/132243/media9-l3kernel-too-old-support-outdated)  
 
 
 
 
-6) Modificar b�sicos archivos ( http://seankross.com/2016/11/17/How-to-Start-a-Bookdown-Book.html )
+
+
+6) Modificar basicos archivos ( http://seankross.com/2016/11/17/How-to-Start-a-Bookdown-Book.html )
 6.1) _output.yml
 6.1.1)The only line you should change here is the title of the book, which in this case is A Minimal Bookdown Book
 
@@ -113,3 +110,42 @@ Once you have those three configuration flies set up writing a bookdown book cou
 8) Compilar libro desde RStudio
 8.1) bookdown::render_book("index.Rmd")
 8.2) Abrir "repolocal"/docs/index.html
+
+
+# Clean previous crap  {#ref_CleanPreviousCrap}
+- If there was a dirty installation of packages, [remove all user installed packages in R](https://www.r-bloggers.com/how-to-remove-all-user-installed-packages-in-r/) (caution!):  
+
+````
+# create a list of all installed packages
+ ip <- as.data.frame(installed.packages())
+ head(ip)
+# if you use MRO, make sure that no packages in this library will be removed
+ ip <- subset(ip, !grepl("MRO", ip$LibPath))
+# we don't want to remove base or recommended packages either\
+ ip <- ip[!(ip[,"Priority"] %in% c("base", "recommended")),]
+# determine the library where the packages are installed
+ path.lib <- unique(ip$LibPath)
+# create a vector with all the names of the packages you want to remove
+ pkgs.to.remove <- ip[,1]
+ head(pkgs.to.remove)
+# remove the packages
+ sapply(pkgs.to.remove, remove.packages, lib = path.lib)
+````
+
+- If installed various latex shits, they are under:  
+
+````{r eval=FALSE}
+C:\Users\$USER\AppData\Local\Programs\MiKTeX 2.9
+C:\Users\$USER\AppData\ somewhere here is the tinytex dir.
+````
+
+
+
+
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
