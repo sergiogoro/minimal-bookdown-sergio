@@ -1,0 +1,56 @@
+--- 
+title: "A Minimal Book Example"
+author: "Sergio"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: https://github.com/sergiogoro/minimal-bookdown-sergio
+description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+---
+
+# Prerequisites
+
+- Download and install R:  
+    - https://cran.r-project.org/  
+
+- Downoad and install RStudio:  
+    - https://www.rstudio.com/products/rstudio/download/  
+    - Configure RStudio:  
+    - ...  
+
+- Install R packages (from RStudio for example):  
+    - Bookdown (development version on GitHub):  
+
+```{r eval=FALSE}
+devtools::install_github("rstudio/bookdown")
+```
+    - Tinytex:  
+        - To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.name/tinytex/>.  
+````{r eval=FALSE}
+devtools::install_github(c('yihui/tinytex', 'rstudio/rmarkdown'))
+tinytex::install_tinytex()
+````
+
+
+```{r include=FALSE}  
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
+
+    <!---
+    [//]: # Knitr:  
+        - install.packages('knitr', dependencies = TRUE)  
+    --->
+
+# How to minimal Bookdown
+- Download the [minimal-bookdown-sergio](https://github.com/sergiogoro/minimal-bookdown-sergio) GitHub repository as a [Zip](https://github.com/sergiogoro/minimal-bookdown-sergio/archive/master.zip) file, then unzip it locally.  
+- 
+
+- 
+- 
