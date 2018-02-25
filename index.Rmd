@@ -22,14 +22,34 @@ description: "This is a minimal example of using the bookdown package to write a
     - Configure RStudio:  
     - ...  
 
-- Install R packages (from RStudio for example):  
-    - Bookdown (development version on GitHub):  
+- If there was a dirty installation of packages, [remove all user installed packages in R](https://www.r-bloggers.com/how-to-remove-all-user-installed-packages-in-r/) (caution!):  
+
+````
+# create a list of all installed packages
+ ip <- as.data.frame(installed.packages())
+ head(ip)
+# if you use MRO, make sure that no packages in this library will be removed
+ ip <- subset(ip, !grepl("MRO", ip$LibPath))
+# we don't want to remove base or recommended packages either\
+ ip <- ip[!(ip[,"Priority"] %in% c("base", "recommended")),]
+# determine the library where the packages are installed
+ path.lib <- unique(ip$LibPath)
+# create a vector with all the names of the packages you want to remove
+ pkgs.to.remove <- ip[,1]
+ head(pkgs.to.remove)
+# remove the packages
+ sapply(pkgs.to.remove, remove.packages, lib = path.lib)
+````
+
+- Install R packages:  
+    - Bookdown (development version on GitHub)  
 
 ```{r eval=FALSE}
 devtools::install_github("rstudio/bookdown")
 ```
-    - Tinytex:  
-        - To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.name/tinytex/>.  
+
+    - [Tinytex](https://yihui.name/tinytex/)  
+
 ````{r eval=FALSE}
 devtools::install_github(c('yihui/tinytex', 'rstudio/rmarkdown'))
 tinytex::install_tinytex()
@@ -50,7 +70,46 @@ knitr::write_bib(c(
 
 # How to minimal Bookdown
 - Download the [minimal-bookdown-sergio](https://github.com/sergiogoro/minimal-bookdown-sergio) GitHub repository as a [Zip](https://github.com/sergiogoro/minimal-bookdown-sergio/archive/master.zip) file, then unzip it locally.  
-- 
+- Create a new RStudio project  
+    - Create a new project -> in existing directory -> select the local repo.  
+    - Check: Build -> build book.  
 
-- 
-- 
+
+
+
+
+6) Modificar b�sicos archivos ( http://seankross.com/2016/11/17/How-to-Start-a-Bookdown-Book.html )
+6.1) _output.yml
+6.1.1)The only line you should change here is the title of the book, which in this case is A Minimal Bookdown Book
+
+6.2) _bookdown.yml
+6.2.1) The book_filename field determines what the name of the PDF and EPUB versions of your book will be called. In the case of this book the PDF version would be bookdown-start.pdf. The chapter_name field is a string that is appended to the front of each chapter heading, followed by the chapter number. Chapter headings are designated by H1 tags in R Markdown which are usually created with a single pound sign (#). So for example in the file 01-Introduction.Rmd the first H1 tag is # Introduction which becomes �Chapter 1 Introduction� when the book is rendered. The repo field just designates a GitHub repository associated with this book but this is not a required field.
+The output_dir field determines the directory where the HTML files for your book will be rendered. If you don�t set this field your book will be rendered in a directory called _book/, however if you�re going to be sharing your book with GitHub Pages I highly recommend specifying the docs directory for output_dir. GitHub Pages has a new feature which allows you to use a docs/ folder in the master branch of your repo to publish a static website. This allows you to track the source files for your book and the published HTML files in the same branch, eliminating the need for that pesky gh-pages branch.
+The rmd_files field is optional. If it is not specified then all Rmd files at the root of your book directory are rendered as chapters in your book. Alternatively you can list the files you want to be rendered like I have in _bookdown.yml. The new_session field is also optional. If you specify new_session: yes then each Rmd file is rendered in its own R session, otherwise all Rmd files in your book are rednered in the same R session.
+
+6.3) index.Rmd
+6.3.1)
+This file serves as the cover and first few pages of your book, so authors usually put the Preface and/or the Introduction in this file. At the top of this file is a slice of yaml frontmatter that looks like this:
+---
+title: "A Minimal Bookdown Book"
+author: "Sean Kross"
+date: "2016-12-02"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: seankross/bookdown-start
+url: 'http\://seankross.com/bookdown-start/'
+description: "Everything you need (and nothing more) to start a bookdown book."
+---
+You should change the title, author, date, github-repo, url, and description fields to customize your book. I omitted a field called cover-image where you can specify the path to a image file for the cover of your book (I know .png works for sure).
+
+ 
+
+7) Escribir, editando los archivos desde Rstudio (u otro editor)
+Once you have those three configuration flies set up writing a bookdown book couldn�t be easier if you�re familiar with R Markdown. Just write Rmd files in the root directory of your book (where index.Rmd is) and run bookdown::render_book("index.Rmd") periodically to compile your book. You can preview the book by opening up the index.html file in the directory where your book is rendered (docs/index.html in the case of bookdown-start). It�s also good practice to name your Rmd files so that they�re ordered, which you can see I�ve done with the prefixes of 01-, 02-, etc. You can then publish the book on GitHub Pages or you can upload the book to bookdown.org with the publish_book() function.
+
+8) Compilar libro desde RStudio
+8.1) bookdown::render_book("index.Rmd")
+8.2) Abrir "repolocal"/docs/index.html
